@@ -228,7 +228,7 @@ public partial class Default : Page
       },
       new FileFormatImporter
       {
-        DisplayName = "OPUS Corpus Collection XCES-XML (*.xml)",
+        DisplayName = "OPUS Corpus Collection (*.xml)",
         Importer = new ImporterOpusXces(),
         DefaultExtension = ".xml"
       },
@@ -334,7 +334,7 @@ public partial class Default : Page
       },
       new FileFormatExporter
       {
-        DisplayName = "OPUS Corpus Collection XCES-XML (*.xml)",
+        DisplayName = "OPUS Corpus Collection (*.xml)",
         Exporter = new ExporterOpusXces(),
         DefaultExtension = ".xml"
       },
