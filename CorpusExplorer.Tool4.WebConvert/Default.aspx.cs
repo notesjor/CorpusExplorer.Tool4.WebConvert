@@ -18,6 +18,7 @@ using CorpusExplorer.Sdk.Extern.Xml.Dta.Tcf2017;
 using CorpusExplorer.Sdk.Extern.Xml.FnhdC;
 using CorpusExplorer.Sdk.Extern.Xml.Folker.Fln;
 using CorpusExplorer.Sdk.Extern.Xml.Ids.KorAP;
+using CorpusExplorer.Sdk.Extern.Xml.Opus;
 using CorpusExplorer.Sdk.Extern.Xml.Tei.Dwds;
 using CorpusExplorer.Sdk.Extern.Xml.Tiger.Importer;
 using CorpusExplorer.Sdk.Extern.Xml.Txm;
@@ -203,21 +204,33 @@ public partial class Default : Page
       },
       new FileFormatImporter
       {
-        DisplayName = "FOLKER / OrthoNormal (*.fln)|*.fln",
+        DisplayName = "FOLKER / OrthoNormal (*.fln)",
         Importer = new ImporterFolkerFln(),
         DefaultExtension = ".fln"
       },
       new FileFormatImporter
       {
-        DisplayName = "IDS KorAP (*.zip)|*.zip",
+        DisplayName = "IDS KorAP (*.zip)",
         Importer = new ImporterKorap(),
         DefaultExtension = ".zip"
       },
       new FileFormatImporter
       {
-        DisplayName = "JSON Standof Universal (*.json)|*.json",
-        Importer = new SimpleJsonStandoffImporter(),
+        DisplayName = "IMS Open Corpus Workbench (*.vrt)",
+        Importer = new ImporterCorpusWorkBench(),
+        DefaultExtension = ".vrt"
+      },
+      new FileFormatImporter
+      {
+        DisplayName = "JSON Standof Universal (*.json)",
+        Importer = new ImporterSimpleJsonStandoff(),
         DefaultExtension = ".json"
+      },
+      new FileFormatImporter
+      {
+        DisplayName = "OPUS Corpus Collection XCES-XML (*.xml)",
+        Importer = new ImporterOpusXces(),
+        DefaultExtension = ".xml"
       },
       new FileFormatImporter
       {
@@ -297,12 +310,6 @@ public partial class Default : Page
       },
       new FileFormatExporter
       {
-        DisplayName = "CorpusWorkBench (*.cwb)",
-        Exporter = new ExporterCorpusWorkBench{ UseSentenceTag = true },
-        DefaultExtension = ".cwb"
-      },
-      new FileFormatExporter
-      {
         DisplayName = "DTA-TCF (*.tcf.xml)",
         Exporter = new ExporterDta2017(),
         DefaultExtension = ".tcf.xml"
@@ -318,6 +325,18 @@ public partial class Default : Page
         DisplayName = "HTML (*.html)",
         Exporter = new ExporterHtmlPure(),
         DefaultExtension = ".html"
+      },
+      new FileFormatExporter
+      {
+        DisplayName = "IMS Open Corpus Workbench (*.vrt)",
+        Exporter = new ExporterCorpusWorkBench{ UseSentenceTag = true },
+        DefaultExtension = ".vrt"
+      },
+      new FileFormatExporter
+      {
+        DisplayName = "OPUS Corpus Collection XCES-XML (*.xml)",
+        Exporter = new ExporterOpusXces(),
+        DefaultExtension = ".xml"
       },
       new FileFormatExporter
       {
