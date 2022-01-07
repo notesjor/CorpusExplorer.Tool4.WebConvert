@@ -234,6 +234,12 @@ public partial class Default : Page
       },
       new FileFormatImporter
       {
+        DisplayName = "Sketch Engine VERT (*.vert)",
+        Importer = new ImporterSketchEngine(),
+        DefaultExtension = ".vert"
+      },
+      new FileFormatImporter
+      {
         DisplayName = "SPEEDy/CODEX (*.json)",
         Importer = new ImporterSpeedy(),
         DefaultExtension = ".json"
@@ -337,6 +343,12 @@ public partial class Default : Page
         DisplayName = "OPUS Corpus Collection (*.xml)",
         Exporter = new ExporterOpusXces(),
         DefaultExtension = ".xml"
+      },
+      new FileFormatExporter
+      {
+        DisplayName = "Sketch Engine VERT (*.vert)",
+        Exporter = new ExporterSketchEngine(),
+        DefaultExtension = ".vert"
       },
       new FileFormatExporter
       {
