@@ -34,7 +34,9 @@
           </fieldset>
           <fieldset>
             <legend>2. Upload</legend>
-            <p>Laden Sie dann beliebige Dateien hoch. Diese müssen mit dem unter "1. Dateiformat (Input)" übereinstimmen.</p>
+            <p>Laden Sie dann beliebige Dateien hoch. Diese müssen mit dem unter "1. Dateiformat (Input)" übereinstimmen.<br />
+              Bitte laden Sie nur Dateien mit einer max. Gesamtgröße von 50MB hoch - Für größere Dateien nutzen Sie bitte kostenfreie CorpusExplorer-Installation (<a href="http://corpusexplorer.de">www.CorpusExplorer.de</a>).<br />
+            </p>
             <telerik:RadAsyncUpload ID="upload_files" runat="server" MultipleFileSelection="Automatic" MaxFileInputsCount="100"></telerik:RadAsyncUpload>
           </fieldset>
           <fieldset>
@@ -51,8 +53,10 @@
           </fieldset>
         </div>
       </div>
-
     </div>
   </form>
+  <div>
+
+  </div>
 </body>
 </html>
