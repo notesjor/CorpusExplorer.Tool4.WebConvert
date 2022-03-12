@@ -6,8 +6,139 @@
 <head runat="server">
   <title></title>
   <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
+  <link rel="stylesheet" href="https://notes.jan-oliver-ruediger.de/wp-includes/css/dist/block-library/style.min.css" />
+  <style>
+    #main-footer {
+      font-family: Open Sans,Arial,sans-serif;
+      color: #666;
+      line-height: 1.7em;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      box-sizing: border-box;
+      display: block;
+      background-color: #222222;
+    }
+
+    #et-footer-nav {
+      font-family: Open Sans,Arial,sans-serif;
+      color: #666;
+      line-height: 1.7em;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      vertical-align: baseline;
+      background: transparent;
+      background-color: rgba(255,255,255,0.05);
+    }
+
+    .container {
+      font-family: Open Sans,Arial,sans-serif;
+      color: #666;
+      line-height: 1.7em;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      vertical-align: baseline;
+      background: transparent;
+      width: 80%;
+      max-width: 1080px;
+      margin: auto;
+      text-align: left;
+      position: relative;
+    }
+
+    .bottom-nav {
+      font-family: Open Sans,Arial,sans-serif;
+      color: #666;
+      line-height: 1.7em;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      text-align: left;
+      box-sizing: border-box;
+      margin: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      vertical-align: baseline;
+      background: transparent;
+      list-style: none;
+      overflow-wrap: break-word;
+      padding: 15px 0;
+    }
+
+    .menu-item {
+      font-family: Open Sans, Arial, sans-serif;
+      line-height: 1.7em;
+      -webkit-font-smoothing: antialiased;
+      list-style: none;
+      overflow-wrap: break-word;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      -webkit-text-size-adjust: 100%;
+      vertical-align: baseline;
+      background: transparent;
+      font-weight: 600;
+      display: inline-block;
+      font-size: 14px;
+      padding-right: 22px;
+    }
+
+      .menu-item > a {
+        color: #edb059;
+        text-decoration: none;
+      }
+
+    #footer-bottom {
+      font-family: Open Sans,Arial,sans-serif;
+      color: #666;
+      line-height: 1.7em;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+      margin: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      vertical-align: baseline;
+      background: transparent;
+      background-color: rgba(0,0,0,0.32);
+      padding: 15px 0 5px;
+    }
+
+    fieldset {
+      padding: 10px 0 10px 0;
+    }
+  </style>
 </head>
 <body>
+  <header id="main-header" data-height-onload="80" data-height-loaded="true" data-fixed-height-onload="80" style="top: 0px;">
+    <div class="clearfix et_menu_container">
+      <div class="logo_container" style="padding-bottom: 20px">
+        <span class="logo_helper"></span>
+        <a href="https://notes.jan-oliver-ruediger.de/">
+          <img src="https://notes.jan-oliver-ruediger.de/wp-content/uploads/Logo_Blog_Neu_2.png" width="336" height="90" alt="Notes - Jan Oliver Rüdiger" id="logo" data-height-percentage="54" data-actual-width="336" data-actual-height="90">
+        </a>
+      </div>
+    </div>
+  </header>
   <form id="form1" runat="server">
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
       <Scripts>
@@ -28,26 +159,26 @@
         <div id="decorationZone">
           <fieldset>
             <legend>1. Dateiformat (Input)</legend>
-            <p>Geben Sie zuerst an, welches Dateiformat eingelesen werden soll.</p>
+            <p>Bitte wählen Sie zuerst aus, welches Dateiformat eingelesen werden soll. Die unter Schritt 2 (Upload) ausgewählten Dateien müssen diesem Format entsprechen.</p>
             <telerik:RadComboBox ID="format_input" runat="server" Culture="de-DE" Width="300px">
             </telerik:RadComboBox>
           </fieldset>
           <fieldset>
             <legend>2. Upload</legend>
-            <p>Laden Sie dann beliebige Dateien hoch. Diese müssen mit dem unter "1. Dateiformat (Input)" übereinstimmen.<br />
-              Bitte laden Sie nur Dateien mit einer max. Gesamtgröße von 50MB hoch - Für größere Dateien nutzen Sie bitte kostenfreie CorpusExplorer-Installation (<a href="http://corpusexplorer.de">www.CorpusExplorer.de</a>).<br />
+            <p>
+              Sie können max. 100 Dateien mit einer Gesamtgröße von max. 50 MB hochladen. Wenn Sie eine größere Menge (Anzahl/Dateigesamtgröße) konvertieren möchten, nutzen Sie bitte eine lokal installierte CorpusExplorer-Installation (siehe <a href="https://notes.jan-oliver-ruediger.de/korpora/">'Korpora konvertieren'</a>) - Download, Installation und Nutzung des CorpusExplorers sind kostenfrei.<br />
             </p>
             <telerik:RadAsyncUpload ID="upload_files" runat="server" MultipleFileSelection="Automatic" MaxFileInputsCount="100"></telerik:RadAsyncUpload>
           </fieldset>
           <fieldset>
             <legend>3. Dateiformat (Output)</legend>
-            <p>Geben Sie an, in welches Dateiformat konvertiert werden sollen.</p>
+            <p>Geben Sie bitte an, in welches Dateiformat die Dateie(en) konvertiert werden sollen.</p>
             <telerik:RadComboBox ID="format_output" runat="server" Culture="de-DE" Width="300px">
             </telerik:RadComboBox>
           </fieldset>
           <fieldset>
             <legend>4. Ausführen</legend>
-            <p>Klicken Sie abschließend auf den "Ausführen"-Button und warten Sie die Konvertierung ab.</p>
+            <p>Bevor Sie auf &#39;Ausführen&#39; klicken, überprüfen Sie bitte noch einmal ihre Eingaben. Außerdem stellen Sie bitte sicher, dass alle unter 2. (Upload) gewählten Dateien mit einem grünen Punkt versehen sind - dies zeigt einen erfolgreichen Upload an. Klicken Sie auf den "Ausführen"-Button und warten Sie die Konvertierung ab. Je nach Umfang kann dies einige Zeit in Anspruch nehmen.</p>
             <telerik:RadButton ID="btn_execute" runat="server" Text="Ausführen" OnClick="btn_execute_Click"></telerik:RadButton>
             <telerik:RadProgressBar ID="progress_convert" runat="server" Visible="False"></telerik:RadProgressBar>
           </fieldset>
@@ -56,7 +187,24 @@
     </div>
   </form>
   <div>
-
   </div>
+  <footer id="main-footer">
+    <div id="et-footer-nav">
+      <div class="container">
+        <ul id="menu-impressum-rechtliches" class="bottom-nav">
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/">Zum Web-Blog</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/software/">Weitere Software</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/korpora/">Kostenfreie Korpora</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/impressum/">Impressum</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy"><a href="https://notes.jan-oliver-ruediger.de/impressum/datenschutzerklaerung/">Datenschutzerklärung</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/impressum/haftungsausschluss-disclaimer/">Haftungsausschluss</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer-bottom">
+      <div class="container clearfix">
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

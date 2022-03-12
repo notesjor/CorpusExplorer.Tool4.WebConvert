@@ -222,7 +222,7 @@ public partial class Default : Page
       },
       new FileFormatImporter
       {
-        DisplayName = "JSON Standof Universal (*.json)",
+        DisplayName = "JSON Standoff Universal (*.json)",
         Importer = new ImporterSimpleJsonStandoff(),
         DefaultExtension = ".json"
       },
