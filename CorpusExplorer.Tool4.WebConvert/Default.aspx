@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Default" Culture="de-DE" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -158,28 +158,28 @@
       <div>
         <div id="decorationZone">
           <fieldset>
-            <legend>1. Dateiformat (Input)</legend>
-            <p>Bitte wählen Sie zuerst aus, welches Dateiformat eingelesen werden soll. Die unter Schritt 2 (Upload) ausgewählten Dateien müssen diesem Format entsprechen.</p>
+            <legend><asp:Localize meta:resourcekey="step1_head" runat="server">1. Dateiformat (Input)</asp:Localize></legend>
+            <p><asp:Localize meta:resourcekey="step1_desc" runat="server">Bitte wählen Sie zuerst aus, welches Dateiformat eingelesen werden soll. Die unter Schritt 2 (Upload) ausgewählten Dateien müssen diesem Format entsprechen.</asp:Localize></p>
             <telerik:RadComboBox ID="format_input" runat="server" Culture="de-DE" Width="300px">
             </telerik:RadComboBox>
           </fieldset>
           <fieldset>
-            <legend>2. Upload</legend>
+            <legend><asp:Localize meta:resourcekey="step2_head" runat="server">2. Upload</asp:Localize></legend>
             <p>
-              Sie können max. 100 Dateien mit einer Gesamtgröße von max. 50 MB hochladen. Wenn Sie eine größere Menge (Anzahl/Dateigesamtgröße) konvertieren möchten, nutzen Sie bitte eine lokal installierte CorpusExplorer-Installation (siehe <a href="https://notes.jan-oliver-ruediger.de/korpora/">'Korpora konvertieren'</a>) - Download, Installation und Nutzung des CorpusExplorers sind kostenfrei.<br />
+              <asp:Localize meta:resourcekey="step2_desc" runat="server">Sie können max. 100 Dateien mit einer Gesamtgröße von max. 50 MB hochladen. Wenn Sie eine größere Menge (Anzahl/Dateigesamtgröße) konvertieren möchten, nutzen Sie bitte eine lokal installierte CorpusExplorer-Installation (siehe <a href="https://notes.jan-oliver-ruediger.de/korpora/">'Korpora konvertieren'</a>) - Download, Installation und Nutzung des CorpusExplorers sind kostenfrei.</asp:Localize><br />
             </p>
             <telerik:RadAsyncUpload ID="upload_files" runat="server" MultipleFileSelection="Automatic" MaxFileInputsCount="100"></telerik:RadAsyncUpload>
           </fieldset>
           <fieldset>
-            <legend>3. Dateiformat (Output)</legend>
-            <p>Geben Sie bitte an, in welches Dateiformat die Dateie(en) konvertiert werden sollen.</p>
+            <legend><asp:Localize meta:resourcekey="step3_head" runat="server">3. Dateiformat (Output)</asp:Localize></legend>
+            <p><asp:Localize meta:resourcekey="step3_desc" runat="server">Geben Sie bitte an, in welches Dateiformat die Dateie(en) konvertiert werden sollen.</asp:Localize></p>
             <telerik:RadComboBox ID="format_output" runat="server" Culture="de-DE" Width="300px">
             </telerik:RadComboBox>
           </fieldset>
           <fieldset>
-            <legend>4. Ausführen</legend>
-            <p>Bevor Sie auf &#39;Ausführen&#39; klicken, überprüfen Sie bitte noch einmal ihre Eingaben. Außerdem stellen Sie bitte sicher, dass alle unter 2. (Upload) gewählten Dateien mit einem grünen Punkt versehen sind - dies zeigt einen erfolgreichen Upload an. Klicken Sie auf den "Ausführen"-Button und warten Sie die Konvertierung ab. Je nach Umfang kann dies einige Zeit in Anspruch nehmen.</p>
-            <telerik:RadButton ID="btn_execute" runat="server" Text="Ausführen" OnClick="btn_execute_Click"></telerik:RadButton>
+            <legend><asp:Localize meta:resourcekey="step4_head" runat="server">4. Ausführen</asp:Localize></legend>
+            <p><asp:Localize meta:resourcekey="step4_desc" runat="server">Bevor Sie auf &#39;Ausführen&#39; klicken, überprüfen Sie bitte noch einmal ihre Eingaben. Außerdem stellen Sie bitte sicher, dass alle unter 2. (Upload) gewählten Dateien mit einem grünen Punkt versehen sind - dies zeigt einen erfolgreichen Upload an. Klicken Sie auf den "Ausführen"-Button und warten Sie die Konvertierung ab. Je nach Umfang kann dies einige Zeit in Anspruch nehmen.</asp:Localize></p>
+            <telerik:RadButton ID="btn_execute" runat="server" Text="<%$ Resources:Btn_Execute.Text %>" OnClick="btn_execute_Click"></telerik:RadButton>
             <telerik:RadProgressBar ID="progress_convert" runat="server" Visible="False"></telerik:RadProgressBar>
           </fieldset>
         </div>
@@ -192,12 +192,12 @@
     <div id="et-footer-nav">
       <div class="container">
         <ul id="menu-impressum-rechtliches" class="bottom-nav">
-          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/">Zum Web-Blog</a></li>
-          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/software/">Weitere Software</a></li>
-          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/korpora/">Kostenfreie Korpora</a></li>
-          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/impressum/">Impressum</a></li>
-          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy"><a href="https://notes.jan-oliver-ruediger.de/impressum/datenschutzerklaerung/">Datenschutzerklärung</a></li>
-          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/impressum/haftungsausschluss-disclaimer/">Haftungsausschluss</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/"><asp:Localize meta:resourcekey="foot_blog" runat="server">Zum Web-Blog</asp:Localize></a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/software/"><asp:Localize meta:resourcekey="foot_software" runat="server">Weitere Software</asp:Localize></a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/korpora/"><asp:Localize meta:resourcekey="foot_corpora" runat="server">Kostenfreie Korpora</asp:Localize></a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/impressum/"><asp:Localize meta:resourcekey="foot_impressum" runat="server">Impressum</asp:Localize></a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy"><a href="https://notes.jan-oliver-ruediger.de/impressum/datenschutzerklaerung/"><asp:Localize meta:resourcekey="foot_dsgvo" runat="server">Datenschutzerklärung</asp:Localize></a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://notes.jan-oliver-ruediger.de/impressum/haftungsausschluss-disclaimer/"><asp:Localize meta:resourcekey="foot_protect" runat="server">Haftungsausschluss</asp:Localize></a></li>
         </ul>
       </div>
     </div>
