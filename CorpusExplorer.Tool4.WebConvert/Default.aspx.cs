@@ -1,8 +1,10 @@
 ﻿#region
 
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web.UI;
 using CorpusExplorer.Sdk.Compatibility;
 using CorpusExplorer.Sdk.Ecosystem;
@@ -428,5 +430,20 @@ public partial class Default : Page
   private class FileFormatImporter : AbstractFileFormat
   {
     public AbstractImporter Importer { get; set; }
+  }
+
+  protected override void InitializeCulture()
+  {
+    var language = "en-US";
+
+    if (Request.UserLanguages != null)
+    {
+      var tmp = Request.UserLanguages[0];
+      if (!string.IsNullOrEmpty(tmp) && tmp.ToLower().StartsWith("de-"))
+        language = "de-DE";
+    }
+
+    Thread.CurrentThread.CurrentCulture = new CultureInfo(language);
+    Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
   }
 }
