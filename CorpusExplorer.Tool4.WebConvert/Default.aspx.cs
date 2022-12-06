@@ -19,6 +19,7 @@ using CorpusExplorer.Sdk.Extern.Xml.CoraXml._1._0;
 using CorpusExplorer.Sdk.Extern.Xml.Dta.Tcf2017;
 using CorpusExplorer.Sdk.Extern.Xml.FnhdC;
 using CorpusExplorer.Sdk.Extern.Xml.Folker.Fln;
+using CorpusExplorer.Sdk.Extern.Xml.Ids.I5Xml;
 using CorpusExplorer.Sdk.Extern.Xml.Ids.KorAP;
 using CorpusExplorer.Sdk.Extern.Xml.Opus;
 using CorpusExplorer.Sdk.Extern.Xml.Tei.Dwds;
@@ -336,8 +337,20 @@ public partial class Default : Page
       },
       new FileFormatExporter
       {
+        DisplayName = "IDS I5-Korpora (*.zip)",
+        Exporter = new ExporterI5(),
+        DefaultExtension = ".zip"
+      },
+      new FileFormatExporter
+      {
+        DisplayName = "IDS Korap-Korpora (*.zip)",
+        Exporter = new ExporterKorap(),
+        DefaultExtension = ".zip"
+      },
+      new FileFormatExporter
+      {
         DisplayName = "IMS Open Corpus Workbench (*.vrt)",
-        Exporter = new ExporterCorpusWorkBench{ UseSentenceTag = true },
+        Exporter = new ExporterCorpusWorkBench2022{ UseSentenceTag = true },
         DefaultExtension = ".vrt"
       },
       new FileFormatExporter
