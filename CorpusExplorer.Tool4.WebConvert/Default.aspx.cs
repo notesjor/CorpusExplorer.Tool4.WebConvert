@@ -22,6 +22,7 @@ using CorpusExplorer.Sdk.Extern.Xml.Folker.Fln;
 using CorpusExplorer.Sdk.Extern.Xml.Ids.I5Xml;
 using CorpusExplorer.Sdk.Extern.Xml.Ids.KorAP;
 using CorpusExplorer.Sdk.Extern.Xml.Opus;
+using CorpusExplorer.Sdk.Extern.Xml.SaltXml;
 using CorpusExplorer.Sdk.Extern.Xml.Tei.Dwds;
 using CorpusExplorer.Sdk.Extern.Xml.Tiger.Importer;
 using CorpusExplorer.Sdk.Extern.Xml.Txm;
@@ -240,6 +241,12 @@ public partial class Default : Page
         DisplayName = "Sketch Engine VERT (*.vert)",
         Importer = new ImporterSketchEngine(),
         DefaultExtension = ".vert"
+      },
+      new FileFormatImporter
+      {
+        DisplayName = "SALT XML (*.salt)",
+        Importer = new ImporterSaltXml(),
+        DefaultExtension = ".salt"
       },
       new FileFormatImporter
       {
