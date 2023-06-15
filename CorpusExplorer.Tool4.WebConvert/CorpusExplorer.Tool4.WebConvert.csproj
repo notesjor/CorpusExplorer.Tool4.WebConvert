@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\PostSharp.2023.0.5\build\PostSharp.props" Condition="Exists('..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\PostSharp.2023.0.5\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CorpusExplorer.Tool4.WebConvert</RootNamespace>
     <AssemblyName>CorpusExplorer.Tool4.WebConvert</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -23,6 +24,9 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <UpgradeBackupLocation />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,83 +40,98 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>CS1685,CS3009</NoWarn>
+    <WarningsAsErrors>CS1685,CS3009</WarningsAsErrors>
+    <PublishDatabases>false</PublishDatabases>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetZip, Version=1.16.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\DotNetZip.1.16.0\lib\net40\DotNetZip.dll</HintPath>
     </Reference>
+    <Reference Include="PostSharp, Version=2023.0.5.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\PostSharp.Redist.2023.0.5\lib\net45\PostSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
-    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Telerik.ReportViewer.Html5.WebForms, Version=16.2.22.1109, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Web.Design">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\Telerik.Web.Design.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Telerik.Web.Spreadsheet">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Web.Spreadsheet.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Telerik.Web.UI, Version=2023.1.323.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+    <Reference Include="Telerik.Web.Design, Version=2023.2.606.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\Telerik.Web.UI.dll</HintPath>
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\Telerik.Web.Design.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Web.UI.Skins">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\Telerik.Web.UI.Skins.dll</HintPath>
+    <Reference Include="Telerik.Web.Spreadsheet, Version=2023.2.606.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Web.Spreadsheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Core, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Core.dll</HintPath>
+    <Reference Include="Telerik.Web.UI, Version=2023.2.606.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\Telerik.Web.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.DrawingML, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.DrawingML.dll</HintPath>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2023.2.606.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\Telerik.Web.UI.Skins.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Fixed.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Flow, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.DrawingML, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.DrawingML.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Flow.FormatProviders.Doc, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.FormatProviders.Doc.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Fixed.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Flow, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Flow.FormatProviders.Doc, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.FormatProviders.Doc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Xls, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Xls.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Zip, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Zip.Extensions, Version=2023.1.307.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.1.323.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.Extensions.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Xls, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Xls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip.Extensions, Version=2023.2.519.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\lib\RCAJAX\2023.2.606.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -187,7 +206,6 @@
   <ItemGroup>
     <Content Include="App_LocalResources\Default.aspx.resx" />
     <Content Include="App_LocalResources\Default.aspx.en-US.resx" />
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Projekte\CorpusExplorerV2\CorpusExplorer\CorpusExplorer.Sdk.Compatibility\CorpusExplorer.Sdk.Compatibility.csproj">
@@ -210,6 +228,9 @@
       <Project>{DC1B5A58-29DA-476D-89F8-E73A1DB11E52}</Project>
       <Name>CorpusExplorer.Sdk</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -242,7 +263,15 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Verwenden Sie die Wiederherstellung von NuGet-Paketen, um die fehlenden Dateien herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\PostSharp.2023.0.5\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\PostSharp.2023.0.5\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\PostSharp.2023.0.5\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\PostSharp.2023.0.5\build\PostSharp.targets'))" />
+  </Target>
+  <Import Project="..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\PostSharp.2023.0.5\build\PostSharp.targets" Condition="Exists('..\..\..\Projekte\CorpusExplorerV2\CorpusExplorer\packages\PostSharp.2023.0.5\build\PostSharp.targets')" />
 </Project>
